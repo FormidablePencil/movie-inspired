@@ -1,0 +1,29 @@
+<h1>Trending</h1>
+
+<div *ngIf='trendingMovies'>
+  <carousel cellsToShow='6' height='400'>
+    <!-- 400 changes depending on screen size -->
+    <div class="carousel-cell" *ngFor='let result of trendingMovies.results'>
+      <a routerLink="/detail/{{result.id}}">
+        <img class='carousel-image' src='https://image.tmdb.org/t/p/w500{{result.poster_path}}'>
+      </a>
+    </div>
+  </carousel>
+
+  <!-- {{trendingMovies.results[0].original_name}} -->
+</div>
+<div *ngIf='moviesByGenre'>
+  <carousel cellsToShow='6' height='400'>
+    <!-- 400 changes depending on screen size -->
+    <div class="carousel-cell" *ngFor='let result of moviesByGenre.results'>
+      <a routerLink="/detail/{{result.id}}">
+        <img class='carousel-image' src='https://image.tmdb.org/t/p/w500{{result.poster_path}}'>
+      </a>
+    </div>
+  </carousel>
+
+  {{trendingMovies.results[0].original_name}}
+</div>
+<!-- map through -->
+
+<!-- MoviesService -->
