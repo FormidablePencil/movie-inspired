@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "movie-inspired"
+  "defaultProject": "movie-inspired",
+  "cli": {
+    "analytics": "d605a7b7-a453-42e2-826f-476323669bc1"
+  }
 }
