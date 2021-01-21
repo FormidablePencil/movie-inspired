@@ -33,7 +33,9 @@ export class SearchbarComponent implements OnInit {
   }
 
   search() {
-    this.router.navigateByUrl('/discover/:32');
+    this.router.navigateByUrl('/discover?genre=10749');
+    // this.router.navigateByUrl('/discover?title=arm');
+    // this.router.navigateByUrl('/discover?year=2000');
     // navigate to search page
     console.log('search')
   }

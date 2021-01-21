@@ -1,1 +1,7 @@
-<p>page-discover works!</p>
+<ul class='movie-grid'>
+  <span *ngFor='let result of searchResultsGenre.results'>
+    <img class='movie-image' *ngIf='result.poster_path' src='https://image.tmdb.org/t/p/w500{{result.poster_path}}'>
+  </span>
+</ul>
+
+<p>page {{searchResultsGenre.page}}</p>

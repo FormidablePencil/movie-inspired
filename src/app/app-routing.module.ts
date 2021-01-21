@@ -7,7 +7,7 @@ import { PageHomeComponent } from './home/page-home/page-home.component';
 const routes: Routes = [
   { path: '', component: PageHomeComponent },
   { path: 'detail/:id', component: PageDetailsComponent },
-  { path: 'discover/:id', component: PageDiscoverComponent },
+  { path: 'discover', component: PageDiscoverComponent },
 ];
 
 @NgModule({
