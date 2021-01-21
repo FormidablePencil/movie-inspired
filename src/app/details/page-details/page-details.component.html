@@ -1,8 +1,49 @@
-<p>page-details works!</p>
+<button class='back-btn btn btn-primary' (click)='goBack()'>back</button>
 
+<div class="container">
+  <div class="background-overlay"></div>
+  <img class='backgroundImg' *ngIf='movieDataViewingInDetail.backdrop_path'
+    src="https://image.tmdb.org/t/p/w500{{movieDataViewingInDetail.backdrop_path}}"
+    alt="{{movieDataViewingInDetail.original_title}}">
+
+  <div class='content-container'>
+    <img class='large-img' src="https://image.tmdb.org/t/p/w500{{movieDataViewingInDetail.poster_path}}"
+      alt="{{movieDataViewingInDetail.original_title}}">
+
+    <!-- <div *ngIf='movieDataViewingInDetail.genres'>
+        <button *ngFor='let genre of movieDataViewingInDetail.genres' class='btn btn-primary'
+        (click)='clickOnGenre(genre.id)'>
+        <span>{{genre.name}}</span>
+      </button>
+    </div>
+    
+    <div *ngIf='movieDataViewingInDetail.genre_ids'>
+      <button *ngFor='let genreId of movieDataViewingInDetail.genre_ids' class='btn btn-primary'
+      (click)='clickOnGenre(genreId)'>
+      <span>{{getGenreById(genreId)}}</span>
+    </button>
+  </div> -->
+
+
+    <div *ngIf='movieDataViewingInDetail' class='details-container'>
+      <div class='sec1'>
+        <h1>{{movieDataViewingInDetail.title}}</h1>
+        Rating: {{movieDataViewingInDetail.vote_average}}
+      </div>
+      <div class='sec2'>
+        {{movieDataViewingInDetail.overview}}
+      </div>
+      <!-- //! search more by genres of first -->
+
+    </div>
+  </div>
+
+
+
+</div>
 <!-- going to need
- * image
- * title
- * vote_average
- * vote_count
- * poster_path -->
+  image
+  title
+ vote_average
+  vote_count
+  poster_path -->

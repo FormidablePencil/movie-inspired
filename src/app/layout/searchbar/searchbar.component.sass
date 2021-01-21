@@ -4,9 +4,13 @@
   flex-wrap: nowrap
   align-items: flex-end
   flex-direction: row
+  @media screen and ( max-width: 300px )
+    flex-wrap: wrap
+    justify-content: flex-end
+    margin-right: -3em
 
 .row
-  margin-right: 50px
+  margin-right: 20px
   display: flex
   flex-wrap: nowrap
   flex-direction: row
@@ -14,6 +18,14 @@
 
 .form-control
   width: 200px
+  margin-right: 5px
+  border-color: black
+  color: grey
+  // background-color: orange
+
+.form-control-search-by
+  width: 100px
+  margin-right: 0px
 
 .search-by
   font-size: 1.2em

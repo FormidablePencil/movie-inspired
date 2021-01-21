@@ -1,7 +1,12 @@
-<ul class='movie-grid'>
-  <span *ngFor='let result of searchResultsGenre.results'>
-    <img class='movie-image' *ngIf='result.poster_path' src='https://image.tmdb.org/t/p/w500{{result.poster_path}}'>
-  </span>
-</ul>
+<button class='back-btn btn btn-primary' (click)='goBack()'>back</button>
 
-<p>page {{searchResultsGenre.page}}</p>
+<div class='movie-grid'>
+  <span *ngFor='let result of searchResultsGenre.results'>
+    <img *ngIf='result.poster_path' (click)='goToDetails(result.id)' class='movie-image'
+      src='https://image.tmdb.org/t/p/w500{{result.poster_path}}' alt='{{result.original_title}}'>
+  </span>
+</div>
+
+<!-- <p>page {{searchResultsGenre.page}}</p> -->
+
+<!-- <app-pagination></app-pagination> -->

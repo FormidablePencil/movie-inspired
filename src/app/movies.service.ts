@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Comedy, Movie } from './movie';
-import { catchError, map, tap } from 'rxjs/operators';
-
-const genres = ['comedy', 'thriller', 'sciFi', 'drama', 'action', 'epic', 'documentary']
+import { Movie } from './movie';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +10,14 @@ const genres = ['comedy', 'thriller', 'sciFi', 'drama', 'action', 'epic', 'docum
 export class MoviesService {
   apiToken = 'c3f362829cda7e804b7692fdaf065345'
   movieUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${this.apiToken}`
-  movieGenreList = `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiToken}&language=en-US` /* get id of genre and use it to search movies by */
+  movieGenreList = `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiToken}&language=en-US`
   page = 1
-  // more data I believe https://api.themoviedb.org/3/movie/550?api_key=c3f362829cda7e804b7692fdaf065345
+  genres;
+  // heroes$: Observable<Hero[]>;
+  movieDataViewingInDetail: any
   constructor(private http: HttpClient) { }
   // fetch data
+
 
   getTrendingMovies(): Observable<Movie[]> {
     this.log('fetched heroes')
@@ -27,31 +28,39 @@ export class MoviesService {
       );
   }
 
-  // * depending on the url, fill in the areas
-
   getMovieGenreList(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.movieGenreList)
       .pipe(
-        tap(_ => this.log('fetched movie genre list')),
+        tap(genres => { this.log('fetched movie genre list'); this.genres = genres; }),
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
       );
   }
-  getMoviesByGenre(genre): Observable<Movie[]> {
+  getMoviesByGenre(genre, nextPg): Observable<Movie[]> {
+    if (nextPg === true) this.page++
+    else if (nextPg === false) this.page--
     return this.http.get<Movie[]>(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiToken}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.page}&with_genres=${genre}`)
       .pipe(
         tap(_ => this.log('fetched movie genre list')),
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
       );
   }
-  getMoviesByYear(year): Observable<Movie[]> {
+  getMoviesByYear(year, page): Observable<Movie[]> {
     return this.http.get<Movie[]>(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiToken}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.page}&year=${year}`)
       .pipe(
         tap(_ => this.log('fetched movie genre list')),
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
       );
   }
-  getMoviesByTitle(title): Observable<Movie[]> {
+  getMoviesByTitle(title, page): Observable<Movie[]> {
     return this.http.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiToken}&language=en-US&query=${title}&page=${this.page}&include_adult=false`)
+      .pipe(
+        tap(_ => this.log('fetched movie genre list')),
+        catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
+      );
+  }
+
+  getMoviesById(movieId): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiToken}&language=en-US`)
       .pipe(
         tap(_ => this.log('fetched movie genre list')),
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */

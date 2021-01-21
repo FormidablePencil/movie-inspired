@@ -1,1 +1,10 @@
-<p>movies-in-categories works!</p>
+<div (window:resize)="onResize($event.target.innerWidth)" *ngFor='let genreMovies of moviesByGenre'>
+  <h2>{{genreMovies.genre}}</h2>
+  <carousel cellsToShow='{{carouselCellsToShow}}' height='400'>
+    <!-- 400 changes depending on screen size -->
+    <div class="carousel-cell" *ngFor='let movie of genreMovies.data.results'>
+      <img (click)='goToDetails(movie.id, movie)' class='movie-image'
+        src='https://image.tmdb.org/t/p/w500{{movie.poster_path}}'>
+    </div>
+  </carousel>
+</div>

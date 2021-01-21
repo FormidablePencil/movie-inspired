@@ -1,0 +1,14 @@
+<!-- <p>pagination works!</p> -->
+<div class='container pagination-container'>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li (click)='paginate(currentPage - 3)' class="page-item"><a class="page-link">{{currentPage - 3}}</a></li>
+      <li (click)='paginate(currentPage - 2)' class="page-item"><a class="page-link">{{currentPage - 2}}</a></li>
+      <li (click)='paginate(currentPage - 1)' class="page-item"><a class="page-link">{{currentPage - 1}}</a></li>
+      <li class="page-item active"><a class="page-link">{{currentPage}}</a></li>
+      <li (click)='paginate(currentPage + 1)' class="page-item"><a class="page-link">{{currentPage + 1}}</a></li>
+      <li (click)='paginate(currentPage + 2)' class="page-item"><a class="page-link">{{currentPage + 2}}</a></li>
+      <li (click)='paginate(currentPage + 3)' class="page-item"><a class="page-link">{{currentPage + 3}}</a></li>
+    </ul>
+  </nav>
+</div>

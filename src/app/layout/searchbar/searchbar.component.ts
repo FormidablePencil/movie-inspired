@@ -1,6 +1,5 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MoviesService } from 'src/app/movies.service';
 
 @Component({
@@ -10,14 +9,12 @@ import { MoviesService } from 'src/app/movies.service';
 })
 export class SearchbarComponent implements OnInit {
   movieGenreList
-  searchBy = ['title', 'genre', 'top movies by year']
+  searchBy = ['title', 'genre', 'year']
   selected = 'title'
-  years = [2021, 2020, 2019]
-  constructor(
-    public moviesService: MoviesService,
-    private location: Location,
-    private router: Router,
-  ) { }
+  years = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010]
+  toSearch
+
+  constructor(public moviesService: MoviesService, private router: Router) { }
 
   ngOnInit(): void {
     this.getMovieGenreList()
@@ -25,6 +22,10 @@ export class SearchbarComponent implements OnInit {
 
   selectSearchBy(searchBy) {
     this.selected = searchBy
+
+    if (searchBy === 'genre') this.toSearch = this.movieGenreList[0].id
+    if (searchBy === 'year') this.toSearch = this.years[0]
+    if (searchBy === 'title') this.toSearch = ''
   }
 
   getMovieGenreList() {
@@ -33,10 +34,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   search() {
-    this.router.navigateByUrl('/discover?genre=10749');
-    // this.router.navigateByUrl('/discover?title=arm');
-    // this.router.navigateByUrl('/discover?year=2000');
-    // navigate to search page
-    console.log('search')
+    if (this.toSearch)
+      this.router.navigateByUrl(`/discover?${this.selected}=${this.toSearch}`);
   }
 }
