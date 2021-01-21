@@ -19,7 +19,7 @@ export class FeatureMoviesComponent implements OnInit {
   }
 
   getMoviesByGenre() {
-    this.moviesService.getMoviesByGenre()
+    this.moviesService.getMoviesByGenre('action')
       .subscribe(data => this.moviesByGenre = data)
   }
 

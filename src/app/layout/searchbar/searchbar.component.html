@@ -1,0 +1,29 @@
+<div class='container'>
+
+  <div class='row'>
+
+    <div class='search-by'>by: </div>
+    <select name="selected" #mySelect (change)='selectSearchBy(mySelect.value)' class="form-control"
+      ng-model="selected">
+      <option [value]="option" *ngFor="let option of searchBy" [selected]='selected === option'>{{option}}</option>
+    </select>
+  </div>
+  
+  <div class='row'>
+    <div *ngIf='selected === "genre"'>
+      <select class="form-control" aria-label="search by genre">
+        <option value="{{genre.id}}" *ngFor='let genre of movieGenreList'>{{genre.name}}</option>
+        <!-- //Todo: whatever one is selected is the one that will be search by and the page will redirect to page-search -->
+      </select>
+    </div>
+    <div *ngIf='selected === "top movies by year"'>
+      <select class="form-control" aria-label="search by year">
+        <option value="{{years}}" *ngFor='let year of years'>{{year}}</option>
+      </select>
+    </div>
+    <div *ngIf='selected === "title"'>
+      <input class="form-control" type="text" placeholder="search" aria-label=".form-control-lg example">
+    </div>
+    <button (click)='search()' class='btn btn-primary'>search</button>
+  </div>
+</div>

@@ -10,6 +10,8 @@ import { FeatureMoviesComponent } from './home/feature-movies/feature-movies.com
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { PageDetailsComponent } from './details/page-details/page-details.component';
+import { SearchbarComponent } from './layout/searchbar/searchbar.component';
+import { PageDiscoverComponent } from './discover/page-discover/page-discover.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { PageDetailsComponent } from './details/page-details/page-details.compon
     MoviesInCategoriesComponent,
     FeatureMoviesComponent,
     PageDetailsComponent,
+    SearchbarComponent,
+    PageDiscoverComponent,
   ],
   imports: [
     BrowserModule,
