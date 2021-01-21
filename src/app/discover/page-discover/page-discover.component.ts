@@ -31,6 +31,12 @@ export class PageDiscoverComponent implements OnInit {
   goToDetails(id) {
     this.navigationMethodsService.goToDetails(id)
   }
+  
+  navigateNext(navNext) {
+    if (navNext) this.getMovies(true)
+    else this.getMovies(false)
+    console.log('hit')
+  }
 
   getMovies(nextPg?) {
     const param = this.route.snapshot.queryParams;

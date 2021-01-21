@@ -1,16 +1,18 @@
-<button class='back-btn btn btn-primary' (click)='goBack()'>back</button>
-
-<div class="container">
-  <div class="background-overlay"></div>
-  <img class='backgroundImg' *ngIf='movieDataViewingInDetail.backdrop_path'
-    src="https://image.tmdb.org/t/p/w500{{movieDataViewingInDetail.backdrop_path}}"
-    alt="{{movieDataViewingInDetail.original_title}}">
-
-  <div class='content-container'>
-    <img class='large-img' src="https://image.tmdb.org/t/p/w500{{movieDataViewingInDetail.poster_path}}"
+<div class="main-container">
+  <button class='back-btn btn btn-primary' (click)='goBack()'>back</button>
+  
+  <div class="container">
+    <div class="backgroundImg-bg"></div>
+    <div class="background-overlay"></div>
+    <img class='backgroundImg' *ngIf='movieDataViewingInDetail.backdrop_path'
+      src="https://image.tmdb.org/t/p/w500{{movieDataViewingInDetail.backdrop_path}}"
       alt="{{movieDataViewingInDetail.original_title}}">
 
-    <!-- <div *ngIf='movieDataViewingInDetail.genres'>
+    <div class='content-container'>
+      <img class='large-img' src="https://image.tmdb.org/t/p/w500{{movieDataViewingInDetail.poster_path}}"
+        alt="{{movieDataViewingInDetail.original_title}}">
+
+      <!-- <div *ngIf='movieDataViewingInDetail.genres'>
         <button *ngFor='let genre of movieDataViewingInDetail.genres' class='btn btn-primary'
         (click)='clickOnGenre(genre.id)'>
         <span>{{genre.name}}</span>
@@ -25,21 +27,20 @@
   </div> -->
 
 
-    <div *ngIf='movieDataViewingInDetail' class='details-container'>
-      <div class='sec1'>
-        <h1>{{movieDataViewingInDetail.title}}</h1>
-        Rating: {{movieDataViewingInDetail.vote_average}}
-      </div>
-      <div class='sec2'>
-        {{movieDataViewingInDetail.overview}}
-      </div>
-      <!-- //! search more by genres of first -->
+      <div *ngIf='movieDataViewingInDetail' class='details-container'>
+        <div class='sec1'>
+          <h1>{{movieDataViewingInDetail.title}}</h1>
+          Rating: {{movieDataViewingInDetail.vote_average}}
+        </div>
+        <div class='sec2'>
+          {{movieDataViewingInDetail.overview}}
+        </div>
+        <!-- //! search more by genres of first -->
 
+      </div>
     </div>
+
   </div>
-
-
-
 </div>
 <!-- going to need
   image

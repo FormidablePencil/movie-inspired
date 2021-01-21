@@ -35,23 +35,30 @@ export class MoviesService {
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
       );
   }
-  getMoviesByGenre(genre, nextPg): Observable<Movie[]> {
+  getMoviesByGenre(genre, nextPg?): Observable<Movie[]> {
     if (nextPg === true) this.page++
     else if (nextPg === false) this.page--
+
     return this.http.get<Movie[]>(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiToken}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.page}&with_genres=${genre}`)
       .pipe(
         tap(_ => this.log('fetched movie genre list')),
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
       );
   }
-  getMoviesByYear(year, page): Observable<Movie[]> {
+  getMoviesByYear(year, nextPg?): Observable<Movie[]> {
+    if (nextPg === true) this.page++
+    else if (nextPg === false) this.page--
+
     return this.http.get<Movie[]>(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiToken}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.page}&year=${year}`)
       .pipe(
         tap(_ => this.log('fetched movie genre list')),
         catchError(this.handleError<Movie[]>('getGenreList ', [])) /* // ??? */
       );
   }
-  getMoviesByTitle(title, page): Observable<Movie[]> {
+  getMoviesByTitle(title, nextPg?): Observable<Movie[]> {
+    if (nextPg === true) this.page++
+    else if (nextPg === false) this.page--
+    
     return this.http.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiToken}&language=en-US&query=${title}&page=${this.page}&include_adult=false`)
       .pipe(
         tap(_ => this.log('fetched movie genre list')),

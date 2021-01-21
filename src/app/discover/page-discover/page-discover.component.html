@@ -1,12 +1,18 @@
-<button class='back-btn btn btn-primary' (click)='goBack()'>back</button>
+<div class="main-container">
+  <div class="container btns-container">
+    <button class='back-btn btn btn-primary' (click)='goBack()'>back</button>
 
-<div class='movie-grid'>
-  <span *ngFor='let result of searchResultsGenre.results'>
-    <img *ngIf='result.poster_path' (click)='goToDetails(result.id)' class='movie-image'
-      src='https://image.tmdb.org/t/p/w500{{result.poster_path}}' alt='{{result.original_title}}'>
-  </span>
+    <div class="pagination">
+      <button (click)='navigateNext(false)' class='btn btn-primary btn-pagination'>Previous</button>
+      <span class='page-value'>{{searchResultsGenre.page}}</span>
+      <button (click)='navigateNext(true)' class='btn btn-primary btn-pagination'>Next</button>
+    </div>
+  </div>
+
+  <div class='movie-grid'>
+    <span *ngFor='let result of searchResultsGenre.results'>
+      <img *ngIf='result.poster_path' (click)='goToDetails(result.id)' class='movie-image'
+        src='https://image.tmdb.org/t/p/w500{{result.poster_path}}' alt='{{result.original_title}}'>
+    </span>
+  </div>
 </div>
-
-<!-- <p>page {{searchResultsGenre.page}}</p> -->
-
-<!-- <app-pagination></app-pagination> -->

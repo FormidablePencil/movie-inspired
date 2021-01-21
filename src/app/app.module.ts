@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageDetailsComponent } from './details/page-details/page-details.component';
 import { SearchbarComponent } from './layout/searchbar/searchbar.component';
 import { PageDiscoverComponent } from './discover/page-discover/page-discover.component';
-import { PaginationComponent } from './discover/pagination/pagination.component';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { PaginationComponent } from './discover/pagination/pagination.component'
     PageDetailsComponent,
     SearchbarComponent,
     PageDiscoverComponent,
-    PaginationComponent,
   ],
   imports: [
     BrowserModule,
