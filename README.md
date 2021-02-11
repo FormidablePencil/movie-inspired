@@ -2,7 +2,7 @@
 
 website: https://movie-gallery-app.netlify.app
 
-This app I've built while playing around with angular. I've built it in one.
+This app I've built while playing around with angular. I've built it in a day.
 
 ### Technologies utilized
 
