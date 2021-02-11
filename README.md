@@ -1,27 +1,16 @@
 # MovieInspired
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+This app I've built while playing around with angular. I've built it in one.
 
-## Development server
+### Technologies utilized
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Angular <img src="https://i.ibb.co/Gv6tzn0/angular.png" width="20" title="angular">
+- Sass <img src="https://i.ibb.co/TYQYRyd/sassLogo.png" width="20" title="sass">
+- TypeScript <img src="https://i.ibb.co/RBfMh8f/typescript.png" width="20" title="typescript">
+- Bootstrap <img src="https://i.ibb.co/7bqQK1p/boostrap.png" width="20" title="bootstrap">
 
-## Code scaffolding
+### Wireframe
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+App's wireframe [here](https://www.figma.com/file/h9TP6ZxgE3r0ooAjL31Lri/MovieInspired?node-id=0%3A1) 
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Figma <img src="https://i.ibb.co/rb0ygKN/Figma.png" width="20" title="">
