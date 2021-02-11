@@ -7,7 +7,7 @@
   @media screen and ( max-width: 300px )
     flex-wrap: wrap
     justify-content: flex-end
-    margin-right: -3em
+    margin-right: 3em
 
 .row
   margin-right: 20px
@@ -15,6 +15,8 @@
   flex-wrap: nowrap
   flex-direction: row
   flex-wrap: nowrap
+  @media screen and ( max-width: 600px )
+    margin-right: -19px
 
 .form-control
   width: 200px
@@ -30,3 +32,5 @@
 .search-by
   font-size: 1.2em
   margin: 5px
+  display: flex
+  align-items: center

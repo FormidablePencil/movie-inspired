@@ -34,6 +34,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   search() {
+    this.moviesService.movieDataViewingInDetail = null
     if (this.toSearch)
       this.router.navigateByUrl(`/discover?${this.selected}=${this.toSearch}`);
   }
