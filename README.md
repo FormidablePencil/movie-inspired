@@ -1,5 +1,7 @@
 # MovieInspired
 
+website: https://movie-gallery-app.netlify.app
+
 This app I've built while playing around with angular. I've built it in one.
 
 ### Technologies utilized
